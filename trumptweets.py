@@ -66,7 +66,7 @@ def get_all_tweets(screen_name):
                   tweet.text.encode("utf-8")] for tweet in alltweets]
 
     df = pd.DataFrame(outtweets, columns=['tweet_id', 'date_time', 'text'])
-    df.to_csv('trumptweets_7.csv', index=False, sep=';')
+    df.to_csv('trumptweets_8.csv', index=False, sep=';')
 
 
 if __name__ == '__main__':
