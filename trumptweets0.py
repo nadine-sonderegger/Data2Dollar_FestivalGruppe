@@ -11,6 +11,10 @@ ACCESS_SECRET = 'vXESwd7kUW0nwlsPIMld8SEBYZcqEUMCjGqB5efzH8YHL'
 CONSUMER_KEY = 'dAiFKkSETLHJFXsVYzKaAzeCd'
 CONSUMER_SECRET = '5iZEJ101m0FfdXP4e02waVDr7UwBuFwOYgiwrMtgczLSQljohQ'
 
+# screen_name = 'realdonaldtrump'
+# startDate = datetime.date(2019, 1, 1)
+# endDate = datetime.date(2019, 12, 31)
+
 
 def connect_to_twitter_OAuth():
     auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
@@ -21,29 +25,50 @@ def connect_to_twitter_OAuth():
 
 api = connect_to_twitter_OAuth()
 
-username = 'realdonaldtrump'
-startDate = datetime.datetime(2019, 1, 1, 0, 0, 0)
-endDate = datetime.datetime(2018, 12, 31, 0, 0, 0)
 
-tweets = []
-tmpTweets = api.user_timeline(username)
-for tweet in tmpTweets:
-    if tweet.created_at < endDate and tweet.created_at > startDate:
-        tweets.append(tweet)
+def get_all_tweets(screen_name, startDate, endDate):
+    # Twitter only allows access to users most recent 3240 tweets with this method
 
-while (tmpTweets[-1].created_at > startDate):
-    print("Last Tweet @", tmpTweets[-1].created_at, " - fetching some more")
-    tmpTweets = api.user_timeline(username, max_id=tmpTweets[-1].id)
-    for tweet in tmpTweets:
+    # authorize twitter, initialize tweepy
+    auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+    auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
+    api = tweepy.API(auth)
+
+    # initialize a list to hold all the tweepy Tweets
+    alltweets = []
+
+    # make initial request for most recent tweets (200 is the maximum allowed count)
+    new_tweets = api.user_timeline(screen_name=screen_name, count=200,
+                                   exlude_replies=1, include_rts=0)
+
+    # save Tweets
+    alltweets.extend(new_tweets)
+
+    for tweet in new_tweets:
         if tweet.created_at < endDate and tweet.created_at > startDate:
-            tweets.append(tweet)
+            alltweets.append(tweet)
 
-    df = pd.DataFrame(tweets, columns=['tweet_id', 'date_time', 'text'])
-    df.to_csv('trumptweets_1.csv', index=False, sep=';')
+    while (new_tweets[-1].created_at > startDate):
+        print("Last Tweet @", new_tweets[-1].created_at, " - fetching some more")
+        new_tweets = api.user_timeline(screen_name=screen_name, count=200,
+                                       exlude_replies=1, include_rts=0,
+                                       max_id=new_tweets[-1].id)
+        for tweet in new_tweets:
+            if tweet.created_at < endDate and tweet.created_at > startDate:
+                alltweets.append(tweet)
 
+    df = pd.DataFrame(alltweets, columns=['tweet_id', 'date_time', 'text'])
+    df.to_csv('trumptweets_3.csv', index=False, sep=';')
+
+
+if __name__ == '__main__':
+    # pass in the username of the account you want to download
+    screen_name = 'realdonaldtrump'
+    startDate = datetime.datetime(2019, 1, 1, 0, 0, 0)
+    endDate = datetime.datetime(2019, 12, 31, 0, 0, 0)
 
 """
-def get_all_tweets(screen_name, startSince, endUntil):
+def get_all_tweets(screen_name):
     # Twitter only allows access to users most recent 3240 tweets with this method
 
     # authorize twitter, initialize tweepy
