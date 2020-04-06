@@ -3,6 +3,7 @@ Code partly taken from '<script src="https://gist.github.com/yanofsky/5436496.js
 """
 
 import tweepy
+import datetime
 import pandas as pd
 
 ACCESS_TOKEN = '1230902594136084480-H4G2asyYOPsDoEAr9yDUNTaq6hZcOW'
@@ -20,10 +21,28 @@ def connect_to_twitter_OAuth():
 
 api = connect_to_twitter_OAuth()
 
-startSince = ('2014-10-01')
-endUntil = ('2014-11-01')
+username = 'realdonaldtrump'
+startDate = datetime.datetime(2019, 1, 1, 0, 0, 0)
+endDate = datetime.datetime(2018, 12, 31, 0, 0, 0)
+
+tweets = []
+tmpTweets = api.user_timeline(username)
+for tweet in tmpTweets:
+    if tweet.created_at < endDate and tweet.created_at > startDate:
+        tweets.append(tweet)
+
+while (tmpTweets[-1].created_at > startDate):
+    print("Last Tweet @", tmpTweets[-1].created_at, " - fetching some more")
+    tmpTweets = api.user_timeline(username, max_id=tmpTweets[-1].id)
+    for tweet in tmpTweets:
+        if tweet.created_at < endDate and tweet.created_at > startDate:
+            tweets.append(tweet)
+
+    df = pd.DataFrame(tweets, columns=['tweet_id', 'date_time', 'text'])
+    df.to_csv('trumptweets_1.csv', index=False, sep=';')
 
 
+"""
 def get_all_tweets(screen_name, startSince, endUntil):
     # Twitter only allows access to users most recent 3240 tweets with this method
 
@@ -37,7 +56,7 @@ def get_all_tweets(screen_name, startSince, endUntil):
 
     # make initial request for most recent tweets (200 is the maximum allowed count)
     new_tweets = api.user_timeline(screen_name=screen_name, count=200,
-                                   exlude_replies=1, include_rts=0, startSince=startSince, endUntil=endUntil)
+                                   exlude_replies=1, include_rts=0)
 
     # save most recent tweets
     alltweets.extend(new_tweets)
@@ -53,7 +72,7 @@ def get_all_tweets(screen_name, startSince, endUntil):
         # exlude_replies to not consider replies, include_rts to exlude retweets
         new_tweets = api.user_timeline(screen_name=screen_name, count=200,
                                        max_id=oldest, exlude_replies=1,
-                                       include_rts=0, startSince=startSince, endUntil=endUntil)
+                                       include_rts=0)
 
         # save most recent tweets
         alltweets.extend(new_tweets)
@@ -69,9 +88,10 @@ def get_all_tweets(screen_name, startSince, endUntil):
                   tweet.text.encode("utf-8")] for tweet in alltweets]
 
     df = pd.DataFrame(outtweets, columns=['tweet_id', 'date_time', 'text'])
-    df.to_csv('trumptweets_8.csv', index=False, sep=';')
+    df.to_csv('trumptweets_1.csv', index=False, sep=';')
 
 
 if __name__ == '__main__':
     # pass in the username of the account you want to download
-    get_all_tweets('realdonaldtrump', '2014-10-01', '2014-11-01')
+    get_all_tweets('realdonaldtrump')
+"""
