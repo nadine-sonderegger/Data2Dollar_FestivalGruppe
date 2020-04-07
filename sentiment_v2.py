@@ -7,7 +7,6 @@ import numpy as np
 from pandas import ExcelFile
 from pandas import ExcelWriter
 import pandas as pd
-import tweepy
 
 # Excel Liste von gesamten Trump Tweets einlesen
 excel_file = 'trumptweets_downloaded.xlsx'
