@@ -43,11 +43,11 @@ def senti(x):
 
 
 df['senti_score'] = df['content'].apply(senti)
-print(df.senti_score.head(-5))
-print(df.shape)
-print(df.columns)
+# print(df.senti_score.head()
+# print(df.shape)
+# print(df.columns)
 
 df.to_csv('sentiment.csv', index=False, sep=';')
 
-combined_list = pd.merge(tweet_list, df[['content', 'senti_score']], on='content')
-combined_list.to_csv('tweetswithsentiment.csv', index=False, sep=';')
+combined_list = pd.merge(tweet_list, df[['senti_score', 'content']], how='left', on='content')
+combined_list.to_csv('tweetswithsentiment_left.csv', index=False, sep=';')
