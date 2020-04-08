@@ -1,12 +1,9 @@
+"""
+Code source: https://www.datacareer.ch/blog/sentiment-analysis-in-python/
+"""
 import pandas as pd
-import numpy as np
 import re
-import matplotlib.pyplot as plt
-import nltk
 import nltk.corpus as corp
-from nltk import word_tokenize, sent_tokenize
-from nltk.corpus import stopwords
-from wordcloud import WordCloud, STOPWORDS
 from textblob import TextBlob
 
 # Import dataset
