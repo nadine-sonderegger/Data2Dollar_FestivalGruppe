@@ -1,54 +1,57 @@
 """
-Code based on: https://data-science-blog.com/en/blog/2018/11/04/sentiment-analysis-using-python/
+Code source: https://www.datacareer.ch/blog/sentiment-analysis-in-python/
 """
-
 import pandas as pd
-import matplotlib.pyplot as plt
-import nltk
-from nltk import word_tokenize, sent_tokenize
-from nltk.corpus import stopwords
-from wordcloud import WordCloud, STOPWORDS
+import re
+import nltk.corpus as corp
 from textblob import TextBlob
 
 # Import dataset
 tweet_list = pd.read_csv('trumptweets_downloaded.csv')
 
-# understand structure of dataset
-print(tweet_list.shape)
-print(tweet_list.columns)
-
-# removing columns which are not important for sentiment analysis
-remove_columns = ['id', 'link', 'date', 'retweets', 'favorites', 'mentions', 'hashtags', 'geo']
-df = pd.DataFrame(tweet_list.drop(remove_columns, axis=1, inplace=False))
-
-# Checking shape
-print(df.shape)
+stopword = corp.stopwords.words('english') + ['rt', 'https', 'co', 'u', 'go']
 
 
-# Lower Casing
-# Change the reviews type to string
-df['content'] = df['content'].astype(str)
-
-# Lowercase all reviews
-df['content'] = df['content'].apply(lambda x: " ".join(x.lower() for x in x.split()))
-
-# Remove Punctuation
-df['content'] = df['content'].str.replace('(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)', '')
-
-# Remove STOPWORDS
-stop = stopwords.words('english')
-df['content'] = df['content'].apply(lambda x: " ".join(x for x in x.split() if x not in stop))
-
-# Sentiment Score
+def clean_tweet(tweet):
+    tweet = tweet.lower()
+    filteredList = []
+    global stopword
+    tweetList = re.sub("(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)", " ", tweet).split()
+    for i in tweetList:
+        if i not in stopword:
+            filteredList.append(i)
+    return ' '.join(filteredList)
 
 
-def senti(x):
-    return TextBlob(x).sentiment
+scores = []
+status = []
+sub = []
+fullText = []
+for tweet in tweet_list['content']:
+    analysis = TextBlob(clean_tweet(tweet))
+    fullText.extend(analysis.words)
+    value = analysis.sentiment.polarity
+    subject = analysis.sentiment.subjectivity
+    if value > 0:
+        sent = 'positive'
+    elif value == 0:
+        sent = 'neutral'
+    else:
+        sent = 'negative'
+    scores.append(value)
+    status.append(sent)
+    sub.append(subject)
 
 
-df['senti_score'] = df['content'].apply(senti)
-print(df.senti_score.head()
-print(df.shape)
-print(df.columns)
+tweet_list['sentimental_score'] = scores
+tweet_list['sentiment_status'] = status
+tweet_list['subjectivity'] = sub
+tweet_list.drop(tweet_list.columns[5:10], axis=1, inplace=True)
 
-df.to_csv('sentiment.csv', index=False, sep=';')
+print(tweet_list.head())
+
+positive = len(tweet_list[tweet_list['sentiment_status'] == 'positive'])
+negative = len(tweet_list[tweet_list['sentiment_status'] == 'negative'])
+neutral = len(tweet_list[tweet_list['sentiment_status'] == 'neutral'])
+
+tweet_list.to_csv('sentiment_v4.csv', index=False, encoding='utf-8-sig')
