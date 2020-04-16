@@ -3,12 +3,12 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import pandas as pd
 
 # Import dataset
-tweet_list = pd.read_csv('trumptweets.csv')
+# tweet_list = pd.read_csv('trumptweets.csv')
 
 # function to print sentiments of the sentence.
 
 
-def sentiment_scores(tweet):
+def sentiment_scores(sentence):
 
     # Create a SentimentIntensityAnalyzer object.
     sid_obj = SentimentIntensityAnalyzer()
@@ -40,16 +40,15 @@ def sentiment_scores(tweet):
 if __name__ == "__main__":
 
     print("\n1st statement :")
-    sentence = "Geeks For Geeks is the best portal for \
-                the computer science engineering students."
+    sentence = "What do I know about branding, maybe nothing (but I did become President!), but if I were Boeing, I would FIX the Boeing 737 MAX, add some additional great features, & REBRAND the plane with a new name. No product has suffered like this one. But again, what the hell do I know?"
 
     # function calling
     sentiment_scores(sentence)
 
     print("\n2nd Statement :")
-    sentence = "study is going on as usual"
+    sentence = "As your President, one would think that I would be thrilled with our very strong dollar. I am not! The Fed’s high interest rate level, in comparison to other countries, is keeping the dollar high, making it more difficult for our great manufacturers like Caterpillar, Boeing,....."
     sentiment_scores(sentence)
 
     print("\n3rd Statement :")
-    sentence = "I am vey sad today."
+    sentence = "Why didn’t President Obama do something about the so-called Russian Meddling when he was told about it by the FBI before the Election? Because he thought Crooked Hillary was going to win, and he didn’t want to upset the apple cart! He was in charge, not me, and did nothing."
     sentiment_scores(sentence)
