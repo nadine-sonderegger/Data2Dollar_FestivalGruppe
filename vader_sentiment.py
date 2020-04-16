@@ -1,9 +1,5 @@
 # import SentimentIntensityAnalyzer class from vaderSentiment.vaderSentiment module.
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-import pandas as pd
-
-# Import dataset
-# tweet_list = pd.read_csv('trumptweets.csv')
 
 # function to print sentiments of the sentence.
 
