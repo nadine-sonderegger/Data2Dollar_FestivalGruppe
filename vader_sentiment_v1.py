@@ -4,26 +4,23 @@ import pandas as pd
 
 # Import dataset
 tweet_list = pd.read_csv('trumptweets.csv')
+pos_score = []
+neg_score = []
+neu_score = []
+overall_score = []
 
 
-def sentiment_scores(tweet):
-
+for tweet in tweet_list['content']:
     sid_obj = SentimentIntensityAnalyzer()
     sentiment_dict = sid_obj.polarity_scores(tweet)
 
     if sentiment_dict['compound'] >= 0.05:
-        print("Positive")
-
+        mood = 'positive'
     elif sentiment_dict['compound'] <= - 0.05:
-        print("Negative")
-
+        mood = 'negative'
     else:
-        print("Neutral")
-    return
+        mood = 'neutral'
+    overall_score.append(mood)
 
 
-if __name__ == "__main__":
-    tweet = tweet_list['content']
-
-
-tweet.to_csv('vader_1.csv', index=False, encoding='utf-8-sig')
+tweet_list.to_csv('vader_1.csv', index=False, encoding='utf-8-sig')
