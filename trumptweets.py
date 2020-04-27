@@ -63,10 +63,10 @@ def get_all_tweets(screen_name):
     print('Finished Downloading %s tweets' % screen_name)
     # transform the tweepy tweets into a 2D array that will populate the csv
     outtweets = [[tweet.id_str, tweet.created_at,
-                  tweet.text.encode("utf-8")] for tweet in alltweets]
+                  tweet.text.encode("utf-8-sig")] for tweet in alltweets]
 
     df = pd.DataFrame(outtweets, columns=['tweet_id', 'date_time', 'text'])
-    df.to_csv('trumptweets_7.csv', index=False, sep=';')
+    df.to_csv('trumptweets_1.csv', index=False, sep=';')
 
 
 if __name__ == '__main__':

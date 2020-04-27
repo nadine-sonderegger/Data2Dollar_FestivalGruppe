@@ -14,7 +14,7 @@ overall_score = []
 
 sid_obj = SentimentIntensityAnalyzer()
 
-for tweet in tweet_list['tweet']:
+for tweet in tweet_list['content']:
     sentiment_dict = sid_obj.polarity_scores(tweet)
     neg = sentiment_dict['neg']
     pos = sentiment_dict['pos']
@@ -27,17 +27,17 @@ for tweet in tweet_list['tweet']:
     else:
         mood = 'neutral'
 
-    overall_score.append(mood)
-    pos_score.append(pos)
-    neg_score.append(neg)
-    neu_score.append(neu)
+overall_score.append(mood)
+pos_score.append(pos)
+neg_score.append(neg)
+neu_score.append(neu)
 
 tweet_list['pos_score'] = sentiment_dict['pos']
 tweet_list['neg_score'] = sentiment_dict['neg']
 tweet_list['neu_score'] = sentiment_dict['neu']
 tweet_list['overall_score'] = overall_score
 
-tweet_list.drop(tweet_list.columns[0:4], axis=1, inplace=True)
+# tweet_list.drop(tweet_list.columns[5:], axis=1, inplace=True)
 
 print(tweet_list.head())
 

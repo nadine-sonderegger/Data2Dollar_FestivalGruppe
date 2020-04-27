@@ -6,7 +6,7 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import pandas as pd
 
 # Import dataset
-tweet_list = pd.read_csv('trumptweets.csv')
+tweet_list = pd.read_csv('trumptweets_1.csv')
 pos_score = []
 neg_score = []
 neu_score = []
@@ -41,4 +41,4 @@ tweet_list.drop(tweet_list.columns[5:10], axis=1, inplace=True)
 
 print(tweet_list.head())
 
-tweet_list.to_csv('vader_2.csv', index=False, encoding='utf-8-sig')
+tweet_list.to_csv('vader_3.csv', index=False, encoding='utf-8-sig')
