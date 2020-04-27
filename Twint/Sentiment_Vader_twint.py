@@ -1,5 +1,5 @@
 """
-Partly taken from: https://www.geeksforgeeks.org/python-sentiment-analysis-using-vader/
+Partly taken from: https://www.geeksforgeeks.org/python-sentiment-analysis-using-vader/ and https://www.datacareer.ch/blog/sentiment-analysis-in-python/
 """
 # import SentimentIntensityAnalyzer class from vaderSentiment.vaderSentiment module.
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
