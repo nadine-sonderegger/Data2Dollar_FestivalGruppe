@@ -32,9 +32,9 @@ for tweet in tweet_list['content']:
     neg_score.append(neg)
     neu_score.append(neu)
 
-tweet_list['pos_score'] = sentiment_dict['pos']
-tweet_list['neg_score'] = sentiment_dict['neg']
-tweet_list['neu_score'] = sentiment_dict['neu']
+tweet_list['pos_score'] = pos_score
+tweet_list['neg_score'] = neg_score
+tweet_list['neu_score'] = neu_score
 tweet_list['overall_score'] = overall_score
 
 tweet_list.drop(tweet_list.columns[5:10], axis=1, inplace=True)
