@@ -14,8 +14,8 @@ print(list_of_tweets)
 news_impact = {}
 
 for a, b in zip(list_of_links, list_of_tweets):
-    driver = webdriver.Chrome(
-        executable_path=r"/Users/NSonderegger/Desktop/chromedriver.exe")
+    #driver = webdriver.Chrome('C:/webdrivers/chromedriver.exe')
+    driver = webdriver.Chrome('/Users/NSonderegger/Desktop/chromedriver')
     driver.get('http://www.google.com')
     # time.sleep(2)
     #search_box = driver.find_element_by_name('q')
