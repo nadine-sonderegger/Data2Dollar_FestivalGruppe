@@ -1,3 +1,6 @@
+"""
+Partly taken from: https://github.com/twintproject/twint
+"""
 import twint
 import pandas as pd
 
@@ -9,7 +12,7 @@ def get_tweets():
     # choose username
     c.Username = "realdonaldtrump"
     # choose beginning time
-    c.Since = "2015-01-01 00:00:00"
+    c.Year = "2015-01-01 00:00:00"
     # customize table
     c.Custom['tweet'] = ["id", "date", "time", "timezone", "tweet", "link"]
     # format to csv

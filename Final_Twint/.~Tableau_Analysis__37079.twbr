@@ -1,0 +1,2448 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20201.20.0219.0753                               -->
+<workbook source-build='2020.1.0 (20201.20.0219.0753)' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Sheet1+ (Multiple Connections) (2)' inline='true' name='federated.1f7yrgb02thwof12jgtdx19t9d5e' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='ResultsRedditCrawl_AllTweets' name='excel-direct.110mypv1mws3we10rohtc1ki1o7b'>
+            <connection class='excel-direct' cleaning='yes' compat='no' dataRefreshTime='' filename='/Users/NSonderegger/Documents/HSG/Master/2.Semester/Data2Dollar/Tableau/ResultsRedditCrawl_AllTweets.xlsx' interpretationMode='1' password='' server='' validate='no' />
+          </named-connection>
+          <named-connection caption='ResultsGoogleCrawl' name='excel-direct.1l92kmj1gh4lxi11fkx0h0ks985l'>
+            <connection class='excel-direct' cleaning='yes' compat='no' dataRefreshTime='' filename='/Users/NSonderegger/Documents/HSG/Master/2.Semester/Data2Dollar/Tableau/ResultsGoogleCrawl.xlsx' interpretationMode='1' password='' server='' validate='no' />
+          </named-connection>
+          <named-connection caption='FINAL_vader_twint_dowjones' name='excel-direct.1ymgflu0cfzbvr1e2lzv407jzcyl'>
+            <connection class='excel-direct' cleaning='yes' compat='no' dataRefreshTime='' filename='/Users/NSonderegger/Documents/HSG/Master/2.Semester/Data2Dollar/Tableau/FINAL_vader_twint_dowjones.xlsx' interpretationMode='1' password='' server='' validate='no' />
+          </named-connection>
+          <named-connection caption='ResultsRedditCrawl' name='excel-direct.05gu6ph0b2e1jm180vrsj0c8sf1v'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='/Users/NSonderegger/Documents/HSG/Master/2.Semester/Data2Dollar/Tableau/ResultsRedditCrawl.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation join='right' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[Sheet12].[Anzahl Comments]' />
+            </expression>
+          </clause>
+          <relation join='inner' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[Sheet1].[F1]' />
+              </expression>
+            </clause>
+            <relation connection='excel-direct.1l92kmj1gh4lxi11fkx0h0ks985l' name='Sheet1' table='[Sheet1$]' type='table'>
+              <columns gridOrigin='A1:C9:no:A1:C9:1' header='yes' lost='0' outcome='1' processed='8'>
+                <column datatype='string' name='F1' ordinal='0' />
+                <column datatype='string' name='Tweet' ordinal='1' />
+                <column datatype='integer' name='Anzahl Artikel' ordinal='2' />
+              </columns>
+            </relation>
+            <relation connection='excel-direct.1ymgflu0cfzbvr1e2lzv407jzcyl' name='vader_twint_dowjones' table='[vader_twint_dowjones$]' type='table'>
+              <columns gridOrigin='A1:K10001:no:A1:K10001:1' lost='0' outcome='1' processed='59994'>
+                <column datatype='integer' name='id' ordinal='0' />
+                <column datatype='string' name='link' ordinal='1' />
+                <column datatype='string' name='content' ordinal='2' />
+                <column datatype='string' name='lower_case' ordinal='3' />
+                <column datatype='date' name='date' ordinal='4' />
+                <column datatype='datetime' name='time' ordinal='5' />
+                <column datatype='string' name='timezone' ordinal='6' />
+                <column datatype='real' name='pos_score' ordinal='7' />
+                <column datatype='real' name='neg_score' ordinal='8' />
+                <column datatype='real' name='neu_score' ordinal='9' />
+                <column datatype='string' name='overall_score' ordinal='10' />
+              </columns>
+            </relation>
+          </relation>
+          <relation connection='excel-direct.05gu6ph0b2e1jm180vrsj0c8sf1v' name='Sheet12' table='[Sheet1$]' type='table'>
+            <columns gridOrigin='A1:H9:no:A1:H9:0' header='yes' outcome='6'>
+              <column datatype='string' name='F1' ordinal='0' />
+              <column datatype='string' name='Company' ordinal='1' />
+              <column datatype='string' name='startdate' ordinal='2' />
+              <column datatype='string' name='enddate' ordinal='3' />
+              <column datatype='integer' name='Anzahl Posts' ordinal='4' />
+              <column datatype='integer' name='Total Comments of Posts' ordinal='5' />
+              <column datatype='integer' name='Anzahl Comments' ordinal='6' />
+              <column datatype='integer' name='Total Likes of Comments' ordinal='7' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[Anzahl Artikel]' value='[Sheet1].[Anzahl Artikel]' />
+          <map key='[Anzahl Comments (Sheet12)]' value='[Sheet12].[Anzahl Comments]' />
+          <map key='[Anzahl Posts (Sheet12)]' value='[Sheet12].[Anzahl Posts]' />
+          <map key='[Company (Sheet12)]' value='[Sheet12].[Company]' />
+          <map key='[F1 (Sheet12)]' value='[Sheet12].[F1]' />
+          <map key='[F1]' value='[Sheet1].[F1]' />
+          <map key='[Total Comments of Posts (Sheet12)]' value='[Sheet12].[Total Comments of Posts]' />
+          <map key='[Total Likes of Comments (Sheet12)]' value='[Sheet12].[Total Likes of Comments]' />
+          <map key='[Tweet]' value='[Sheet1].[Tweet]' />
+          <map key='[content]' value='[vader_twint_dowjones].[content]' />
+          <map key='[date]' value='[vader_twint_dowjones].[date]' />
+          <map key='[enddate (Sheet12)]' value='[Sheet12].[enddate]' />
+          <map key='[id]' value='[vader_twint_dowjones].[id]' />
+          <map key='[link]' value='[vader_twint_dowjones].[link]' />
+          <map key='[lower_case]' value='[vader_twint_dowjones].[lower_case]' />
+          <map key='[neg_score]' value='[vader_twint_dowjones].[neg_score]' />
+          <map key='[neu_score]' value='[vader_twint_dowjones].[neu_score]' />
+          <map key='[overall_score]' value='[vader_twint_dowjones].[overall_score]' />
+          <map key='[pos_score]' value='[vader_twint_dowjones].[pos_score]' />
+          <map key='[startdate (Sheet12)]' value='[Sheet12].[startdate]' />
+          <map key='[time]' value='[vader_twint_dowjones].[time]' />
+          <map key='[timezone]' value='[vader_twint_dowjones].[timezone]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[F1]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Tweet</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Tweet]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>Tweet</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Anzahl Artikel</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Anzahl Artikel]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>Anzahl Artikel</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:C9:no:A1:C9:1&quot;</attribute>
+              <attribute datatype='integer' name='lost'>0</attribute>
+              <attribute datatype='integer' name='outcome'>1</attribute>
+              <attribute datatype='integer' name='processed'>8</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[id]</local-name>
+            <parent-name>[vader_twint_dowjones]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>link</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[link]</local-name>
+            <parent-name>[vader_twint_dowjones]</parent-name>
+            <remote-alias>link</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>content</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[content]</local-name>
+            <parent-name>[vader_twint_dowjones]</parent-name>
+            <remote-alias>content</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lower_case</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[lower_case]</local-name>
+            <parent-name>[vader_twint_dowjones]</parent-name>
+            <remote-alias>lower_case</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[date]</local-name>
+            <parent-name>[vader_twint_dowjones]</parent-name>
+            <remote-alias>date</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>time</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[time]</local-name>
+            <parent-name>[vader_twint_dowjones]</parent-name>
+            <remote-alias>time</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>timezone</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[timezone]</local-name>
+            <parent-name>[vader_twint_dowjones]</parent-name>
+            <remote-alias>timezone</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pos_score</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[pos_score]</local-name>
+            <parent-name>[vader_twint_dowjones]</parent-name>
+            <remote-alias>pos_score</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>neg_score</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[neg_score]</local-name>
+            <parent-name>[vader_twint_dowjones]</parent-name>
+            <remote-alias>neg_score</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>neu_score</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[neu_score]</local-name>
+            <parent-name>[vader_twint_dowjones]</parent-name>
+            <remote-alias>neu_score</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>overall_score</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[overall_score]</local-name>
+            <parent-name>[vader_twint_dowjones]</parent-name>
+            <remote-alias>overall_score</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[vader_twint_dowjones]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:K10001:no:A1:K10001:1&quot;</attribute>
+              <attribute datatype='integer' name='lost'>0</attribute>
+              <attribute datatype='integer' name='outcome'>1</attribute>
+              <attribute datatype='integer' name='processed'>59994</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[F1 (Sheet12)]</local-name>
+            <parent-name>[Sheet12]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Company</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Company (Sheet12)]</local-name>
+            <parent-name>[Sheet12]</parent-name>
+            <remote-alias>Company</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>startdate</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[startdate (Sheet12)]</local-name>
+            <parent-name>[Sheet12]</parent-name>
+            <remote-alias>startdate</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>enddate</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[enddate (Sheet12)]</local-name>
+            <parent-name>[Sheet12]</parent-name>
+            <remote-alias>enddate</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Anzahl Posts</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Anzahl Posts (Sheet12)]</local-name>
+            <parent-name>[Sheet12]</parent-name>
+            <remote-alias>Anzahl Posts</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Total Comments of Posts</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Total Comments of Posts (Sheet12)]</local-name>
+            <parent-name>[Sheet12]</parent-name>
+            <remote-alias>Total Comments of Posts</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Anzahl Comments</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Anzahl Comments (Sheet12)]</local-name>
+            <parent-name>[Sheet12]</parent-name>
+            <remote-alias>Anzahl Comments</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Total Likes of Comments</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Total Likes of Comments (Sheet12)]</local-name>
+            <parent-name>[Sheet12]</parent-name>
+            <remote-alias>Total Likes of Comments</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Sheet12]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:H9:no:A1:H9:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <layout dim-ordering='alphabetic' dim-percentage='0.836066' measure-ordering='alphabetic' measure-percentage='0.163934' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+    </datasource>
+    <datasource caption='alltrumptweets_twint_v1 (alltrumptweets_twint)' inline='true' name='federated.10d4yhe1ga56lj10pj06a14m4a89' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='alltrumptweets_twint' name='excel-direct.0rqmv0m1bwqq1x1gszsd80c6b3h3'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='/Users/NSonderegger/Documents/HSG/Master/2.Semester/alltrumptweets_twint.xlsx' interpretationMode='0' password='' port='0' server='' validate='no' />
+          </named-connection>
+          <named-connection caption='vader_alltweets_twint' name='excel-direct.0d15ndi1hnduhe17oosgn0ux8u17'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='/Users/NSonderegger/Documents/HSG/Master/2.Semester/Data2Dollar/GitHub/Data2Dollar_FestivalGruppe/Final_Twint/vader_alltweets_twint.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[alltrumptweets_twint_v1].[content]' />
+              <expression op='[vader_alltweets_twint].[content]' />
+            </expression>
+          </clause>
+          <relation connection='excel-direct.0rqmv0m1bwqq1x1gszsd80c6b3h3' name='alltrumptweets_twint_v1' table='[alltrumptweets_twint_v1$]' type='table'>
+            <columns gridOrigin='A1:F10001:no:A1:F10001:0' header='yes' outcome='6'>
+              <column datatype='integer' name='id' ordinal='0' />
+              <column datatype='date' name='date' ordinal='1' />
+              <column datatype='datetime' name='time' ordinal='2' />
+              <column datatype='string' name='timezone' ordinal='3' />
+              <column datatype='string' name='content' ordinal='4' />
+              <column datatype='string' name='link' ordinal='5' />
+            </columns>
+          </relation>
+          <relation connection='excel-direct.0d15ndi1hnduhe17oosgn0ux8u17' name='vader_alltweets_twint' table='[vader_alltweets_twint$]' type='table'>
+            <columns gridOrigin='A1:J10001:no:A1:J10001:0' header='yes' outcome='6'>
+              <column datatype='integer' name='id' ordinal='0' />
+              <column datatype='date' name='date' ordinal='1' />
+              <column datatype='datetime' name='time' ordinal='2' />
+              <column datatype='string' name='timezone' ordinal='3' />
+              <column datatype='string' name='content' ordinal='4' />
+              <column datatype='string' name='link' ordinal='5' />
+              <column datatype='real' name='pos_score' ordinal='6' />
+              <column datatype='real' name='neg_score' ordinal='7' />
+              <column datatype='real' name='neu_score' ordinal='8' />
+              <column datatype='string' name='overall_score' ordinal='9' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[content (vader!alltweets!twint)]' value='[vader_alltweets_twint].[content]' />
+          <map key='[content]' value='[alltrumptweets_twint_v1].[content]' />
+          <map key='[date (vader!alltweets!twint)]' value='[vader_alltweets_twint].[date]' />
+          <map key='[date]' value='[alltrumptweets_twint_v1].[date]' />
+          <map key='[id (vader!alltweets!twint)]' value='[vader_alltweets_twint].[id]' />
+          <map key='[id]' value='[alltrumptweets_twint_v1].[id]' />
+          <map key='[link (vader!alltweets!twint)]' value='[vader_alltweets_twint].[link]' />
+          <map key='[link]' value='[alltrumptweets_twint_v1].[link]' />
+          <map key='[neg_score]' value='[vader_alltweets_twint].[neg_score]' />
+          <map key='[neu_score]' value='[vader_alltweets_twint].[neu_score]' />
+          <map key='[overall_score]' value='[vader_alltweets_twint].[overall_score]' />
+          <map key='[pos_score]' value='[vader_alltweets_twint].[pos_score]' />
+          <map key='[time (vader!alltweets!twint)]' value='[vader_alltweets_twint].[time]' />
+          <map key='[time]' value='[alltrumptweets_twint_v1].[time]' />
+          <map key='[timezone (vader!alltweets!twint)]' value='[vader_alltweets_twint].[timezone]' />
+          <map key='[timezone]' value='[alltrumptweets_twint_v1].[timezone]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[id]</local-name>
+            <parent-name>[alltrumptweets_twint_v1]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[date]</local-name>
+            <parent-name>[alltrumptweets_twint_v1]</parent-name>
+            <remote-alias>date</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>time</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[time]</local-name>
+            <parent-name>[alltrumptweets_twint_v1]</parent-name>
+            <remote-alias>time</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>timezone</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[timezone]</local-name>
+            <parent-name>[alltrumptweets_twint_v1]</parent-name>
+            <remote-alias>timezone</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>content</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[content]</local-name>
+            <parent-name>[alltrumptweets_twint_v1]</parent-name>
+            <remote-alias>content</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>link</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[link]</local-name>
+            <parent-name>[alltrumptweets_twint_v1]</parent-name>
+            <remote-alias>link</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[alltrumptweets_twint_v1]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:F10001:no:A1:F10001:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[id (vader!alltweets!twint)]</local-name>
+            <parent-name>[vader_alltweets_twint]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[date (vader!alltweets!twint)]</local-name>
+            <parent-name>[vader_alltweets_twint]</parent-name>
+            <remote-alias>date</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>time</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[time (vader!alltweets!twint)]</local-name>
+            <parent-name>[vader_alltweets_twint]</parent-name>
+            <remote-alias>time</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>timezone</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[timezone (vader!alltweets!twint)]</local-name>
+            <parent-name>[vader_alltweets_twint]</parent-name>
+            <remote-alias>timezone</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>content</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[content (vader!alltweets!twint)]</local-name>
+            <parent-name>[vader_alltweets_twint]</parent-name>
+            <remote-alias>content</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>link</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[link (vader!alltweets!twint)]</local-name>
+            <parent-name>[vader_alltweets_twint]</parent-name>
+            <remote-alias>link</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pos_score</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[pos_score]</local-name>
+            <parent-name>[vader_alltweets_twint]</parent-name>
+            <remote-alias>pos_score</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>neg_score</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[neg_score]</local-name>
+            <parent-name>[vader_alltweets_twint]</parent-name>
+            <remote-alias>neg_score</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>neu_score</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[neu_score]</local-name>
+            <parent-name>[vader_alltweets_twint]</parent-name>
+            <remote-alias>neu_score</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>overall_score</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[overall_score]</local-name>
+            <parent-name>[vader_alltweets_twint]</parent-name>
+            <remote-alias>overall_score</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[vader_alltweets_twint]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:J10001:no:A1:J10001:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column datatype='integer' name='[id (vader!alltweets!twint)]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[id]' role='dimension' type='ordinal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.761124' measure-ordering='alphabetic' measure-percentage='0.238876' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+    </datasource>
+    <datasource caption='Sheet1+ (Multiple Connections)' inline='true' name='federated.1r4hpeo0dlhwmh1gphe3w0uw4tl3' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='FINAL_vader_twint_dowjones' name='excel-direct.1fmv2a61t264fz13i3l390qqsnui'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='/Users/NSonderegger/Documents/HSG/Master/2.Semester/Data2Dollar/Tableau/FINAL_vader_twint_dowjones.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+          <named-connection caption='ResultsGoogleCrawl' name='excel-direct.03293rc1ezwmfl1fysbhj09vxf3n'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='/Users/NSonderegger/Documents/HSG/Master/2.Semester/Data2Dollar/Tableau/ResultsGoogleCrawl.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+          <named-connection caption='ResultsRedditCrawl_AllTweets' name='excel-direct.05egxpa1fnihqz1cxe9nc0mdnsbt'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='/Users/NSonderegger/Documents/HSG/Master/2.Semester/Data2Dollar/Tableau/ResultsRedditCrawl_AllTweets.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+          <named-connection caption='ResultsRedditCrawl' name='excel-direct.12jbmso1uslmkq10qm8u513pa9z0'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='/Users/NSonderegger/Documents/HSG/Master/2.Semester/Data2Dollar/Tableau/ResultsRedditCrawl.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+          <named-connection caption='vader_alltweets_twint' name='excel-direct.1t068510lksg4c1f9kr6u0vd3sw7'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='/Users/NSonderegger/Documents/HSG/Master/2.Semester/Data2Dollar/GitHub/Data2Dollar_FestivalGruppe/Final_Twint/vader_alltweets_twint.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation join='left' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[FinalTweets].[Link]' />
+              <expression op='[Sheet12].[F1]' />
+            </expression>
+          </clause>
+          <relation join='left' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[AllCompanyTweets].[Company]' />
+                <expression op='[Sheet11].[Company]' />
+              </expression>
+            </clause>
+            <relation join='left' type='join'>
+              <clause type='join'>
+                <expression op='='>
+                  <expression op='[FinalTweets].[Link]' />
+                  <expression op='[Sheet1].[F1]' />
+                </expression>
+              </clause>
+              <relation join='left' type='join'>
+                <clause type='join'>
+                  <expression op='='>
+                    <expression op='[AllCompanyTweets].[link]' />
+                    <expression op='[FinalTweets].[Link]' />
+                  </expression>
+                </clause>
+                <relation join='full' type='join'>
+                  <clause type='join'>
+                    <expression op='='>
+                      <expression op='[vader_alltweets_twint].[link]' />
+                      <expression op='[AllCompanyTweets].[link]' />
+                    </expression>
+                  </clause>
+                  <relation connection='excel-direct.1t068510lksg4c1f9kr6u0vd3sw7' name='vader_alltweets_twint' table='[vader_alltweets_twint$]' type='table'>
+                    <columns gridOrigin='A1:J10001:no:A1:J10001:0' header='yes' outcome='6'>
+                      <column datatype='integer' name='id' ordinal='0' />
+                      <column datatype='date' name='date' ordinal='1' />
+                      <column datatype='datetime' name='time' ordinal='2' />
+                      <column datatype='string' name='timezone' ordinal='3' />
+                      <column datatype='string' name='content' ordinal='4' />
+                      <column datatype='string' name='link' ordinal='5' />
+                      <column datatype='real' name='pos_score' ordinal='6' />
+                      <column datatype='real' name='neg_score' ordinal='7' />
+                      <column datatype='real' name='neu_score' ordinal='8' />
+                      <column datatype='string' name='overall_score' ordinal='9' />
+                    </columns>
+                  </relation>
+                  <relation connection='excel-direct.1fmv2a61t264fz13i3l390qqsnui' name='AllCompanyTweets' table='[AllCompanyTweets$]' type='table'>
+                    <columns gridOrigin='A1:AD58:no:A1:AD58:0' header='yes' outcome='2'>
+                      <column datatype='integer' name='id' ordinal='0' />
+                      <column datatype='string' name='link' ordinal='1' />
+                      <column datatype='string' name='content' ordinal='2' />
+                      <column datatype='string' name='lower_case' ordinal='3' />
+                      <column datatype='date' name='date' ordinal='4' />
+                      <column datatype='datetime' name='time' ordinal='5' />
+                      <column datatype='string' name='startdate' ordinal='6' />
+                      <column datatype='string' name='enddate' ordinal='7' />
+                      <column datatype='string' name='timezone' ordinal='8' />
+                      <column datatype='real' name='pos_score' ordinal='9' />
+                      <column datatype='real' name='neg_score' ordinal='10' />
+                      <column datatype='real' name='neu_score' ordinal='11' />
+                      <column datatype='string' name='overall_score' ordinal='12' />
+                      <column datatype='integer' name='goldman' ordinal='13' />
+                      <column datatype='integer' name='disney' ordinal='14' />
+                      <column datatype='integer' name='caterpillar' ordinal='15' />
+                      <column datatype='integer' name='mcdonald' ordinal='16' />
+                      <column datatype='integer' name='home depot' ordinal='17' />
+                      <column datatype='integer' name='nike' ordinal='18' />
+                      <column datatype='integer' name='merck' ordinal='19' />
+                      <column datatype='integer' name='walmart' ordinal='20' />
+                      <column datatype='integer' name='pfizer' ordinal='21' />
+                      <column datatype='integer' name='exxon' ordinal='22' />
+                      <column datatype='integer' name='boeing' ordinal='23' />
+                      <column datatype='integer' name='apple' ordinal='24' />
+                      <column datatype='integer' name='IfCompany' ordinal='25' />
+                      <column datatype='integer' name='unitedhealth' ordinal='26' />
+                      <column datatype='integer' name='ibm' ordinal='27' />
+                      <column datatype='string' name='Company' ordinal='28' />
+                      <column datatype='integer' name='Check' ordinal='29' />
+                    </columns>
+                  </relation>
+                </relation>
+                <relation connection='excel-direct.1fmv2a61t264fz13i3l390qqsnui' name='FinalTweets' table='[FinalTweets$]' type='table'>
+                  <columns gridOrigin='A1:U9:no:A1:U9:0' header='yes' outcome='2'>
+                    <column datatype='integer' name='ID' ordinal='0' />
+                    <column datatype='string' name='Link' ordinal='1' />
+                    <column datatype='string' name='Text' ordinal='2' />
+                    <column datatype='string' name='Lower Text' ordinal='3' />
+                    <column datatype='date' name='date' ordinal='4' />
+                    <column datatype='string' name='startdate' ordinal='5' />
+                    <column datatype='string' name='enddate' ordinal='6' />
+                    <column datatype='datetime' name='Time' ordinal='7' />
+                    <column datatype='string' name='Time Zone' ordinal='8' />
+                    <column datatype='real' name='pos score' ordinal='9' />
+                    <column datatype='real' name='neg score' ordinal='10' />
+                    <column datatype='real' name='neu score' ordinal='11' />
+                    <column datatype='string' name='sentiment' ordinal='12' />
+                    <column datatype='string' name='Company' ordinal='13' />
+                    <column datatype='string' name='Index' ordinal='14' />
+                    <column datatype='string' name='Sentiment2' ordinal='15' />
+                    <column datatype='string' name='Notes' ordinal='16' />
+                    <column datatype='string' name='Notes3' ordinal='17' />
+                    <column datatype='real' name='F19' ordinal='18' />
+                    <column datatype='date' name='F20' ordinal='19' />
+                    <column datatype='string' name='F21' ordinal='20' />
+                  </columns>
+                </relation>
+              </relation>
+              <relation connection='excel-direct.03293rc1ezwmfl1fysbhj09vxf3n' name='Sheet1' table='[Sheet1$]' type='table'>
+                <columns gridOrigin='A1:C9:no:A1:C9:0' header='yes' outcome='2'>
+                  <column datatype='string' name='F1' ordinal='0' />
+                  <column datatype='string' name='Tweet' ordinal='1' />
+                  <column datatype='string' name='Anzahl Artikel' ordinal='2' />
+                </columns>
+              </relation>
+            </relation>
+            <relation connection='excel-direct.05egxpa1fnihqz1cxe9nc0mdnsbt' name='Sheet11' table='[Sheet1$]' type='table'>
+              <columns gridOrigin='A1:H58:no:A1:H58:0' header='yes' outcome='2'>
+                <column datatype='string' name='F1' ordinal='0' />
+                <column datatype='string' name='Company' ordinal='1' />
+                <column datatype='string' name='startdate' ordinal='2' />
+                <column datatype='string' name='enddate' ordinal='3' />
+                <column datatype='integer' name='Anzahl Posts' ordinal='4' />
+                <column datatype='integer' name='Total Comments of Posts' ordinal='5' />
+                <column datatype='integer' name='Anzahl Comments' ordinal='6' />
+                <column datatype='integer' name='Total Likes of Comments' ordinal='7' />
+              </columns>
+            </relation>
+          </relation>
+          <relation connection='excel-direct.12jbmso1uslmkq10qm8u513pa9z0' name='Sheet12' table='[Sheet1$]' type='table'>
+            <columns gridOrigin='A1:H9:no:A1:H9:0' header='yes' outcome='6'>
+              <column datatype='string' name='F1' ordinal='0' />
+              <column datatype='string' name='Company' ordinal='1' />
+              <column datatype='string' name='startdate' ordinal='2' />
+              <column datatype='string' name='enddate' ordinal='3' />
+              <column datatype='integer' name='Anzahl Posts' ordinal='4' />
+              <column datatype='integer' name='Total Comments of Posts' ordinal='5' />
+              <column datatype='integer' name='Anzahl Comments' ordinal='6' />
+              <column datatype='integer' name='Total Likes of Comments' ordinal='7' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[Anzahl Artikel]' value='[Sheet1].[Anzahl Artikel]' />
+          <map key='[Anzahl Comments (Sheet12)]' value='[Sheet12].[Anzahl Comments]' />
+          <map key='[Anzahl Comments]' value='[Sheet11].[Anzahl Comments]' />
+          <map key='[Anzahl Posts (Sheet12)]' value='[Sheet12].[Anzahl Posts]' />
+          <map key='[Anzahl Posts]' value='[Sheet11].[Anzahl Posts]' />
+          <map key='[Check]' value='[AllCompanyTweets].[Check]' />
+          <map key='[Company (FinalTweets)]' value='[FinalTweets].[Company]' />
+          <map key='[Company (Sheet11)]' value='[Sheet11].[Company]' />
+          <map key='[Company (Sheet12)]' value='[Sheet12].[Company]' />
+          <map key='[Company]' value='[AllCompanyTweets].[Company]' />
+          <map key='[F1 (Sheet11)]' value='[Sheet11].[F1]' />
+          <map key='[F1 (Sheet12)]' value='[Sheet12].[F1]' />
+          <map key='[F19]' value='[FinalTweets].[F19]' />
+          <map key='[F1]' value='[Sheet1].[F1]' />
+          <map key='[F20]' value='[FinalTweets].[F20]' />
+          <map key='[F21]' value='[FinalTweets].[F21]' />
+          <map key='[ID]' value='[FinalTweets].[ID]' />
+          <map key='[IfCompany]' value='[AllCompanyTweets].[IfCompany]' />
+          <map key='[Index]' value='[FinalTweets].[Index]' />
+          <map key='[Link]' value='[FinalTweets].[Link]' />
+          <map key='[Lower Text]' value='[FinalTweets].[Lower Text]' />
+          <map key='[Notes3]' value='[FinalTweets].[Notes3]' />
+          <map key='[Notes]' value='[FinalTweets].[Notes]' />
+          <map key='[Sentiment2]' value='[FinalTweets].[Sentiment2]' />
+          <map key='[Text]' value='[FinalTweets].[Text]' />
+          <map key='[Time Zone]' value='[FinalTweets].[Time Zone]' />
+          <map key='[Time]' value='[FinalTweets].[Time]' />
+          <map key='[Total Comments of Posts (Sheet12)]' value='[Sheet12].[Total Comments of Posts]' />
+          <map key='[Total Comments of Posts]' value='[Sheet11].[Total Comments of Posts]' />
+          <map key='[Total Likes of Comments (Sheet12)]' value='[Sheet12].[Total Likes of Comments]' />
+          <map key='[Total Likes of Comments]' value='[Sheet11].[Total Likes of Comments]' />
+          <map key='[Tweet]' value='[Sheet1].[Tweet]' />
+          <map key='[apple]' value='[AllCompanyTweets].[apple]' />
+          <map key='[boeing]' value='[AllCompanyTweets].[boeing]' />
+          <map key='[caterpillar]' value='[AllCompanyTweets].[caterpillar]' />
+          <map key='[content (AllCompanyTweets)]' value='[AllCompanyTweets].[content]' />
+          <map key='[content]' value='[vader_alltweets_twint].[content]' />
+          <map key='[date (AllCompanyTweets)]' value='[AllCompanyTweets].[date]' />
+          <map key='[date (FinalTweets)]' value='[FinalTweets].[date]' />
+          <map key='[date]' value='[vader_alltweets_twint].[date]' />
+          <map key='[disney]' value='[AllCompanyTweets].[disney]' />
+          <map key='[enddate (FinalTweets)]' value='[FinalTweets].[enddate]' />
+          <map key='[enddate (Sheet11)]' value='[Sheet11].[enddate]' />
+          <map key='[enddate (Sheet12)]' value='[Sheet12].[enddate]' />
+          <map key='[enddate]' value='[AllCompanyTweets].[enddate]' />
+          <map key='[exxon]' value='[AllCompanyTweets].[exxon]' />
+          <map key='[goldman]' value='[AllCompanyTweets].[goldman]' />
+          <map key='[home depot]' value='[AllCompanyTweets].[home depot]' />
+          <map key='[ibm]' value='[AllCompanyTweets].[ibm]' />
+          <map key='[id (AllCompanyTweets)]' value='[AllCompanyTweets].[id]' />
+          <map key='[id]' value='[vader_alltweets_twint].[id]' />
+          <map key='[link (AllCompanyTweets)]' value='[AllCompanyTweets].[link]' />
+          <map key='[link]' value='[vader_alltweets_twint].[link]' />
+          <map key='[lower_case]' value='[AllCompanyTweets].[lower_case]' />
+          <map key='[mcdonald]' value='[AllCompanyTweets].[mcdonald]' />
+          <map key='[merck]' value='[AllCompanyTweets].[merck]' />
+          <map key='[neg score]' value='[FinalTweets].[neg score]' />
+          <map key='[neg_score (AllCompanyTweets)]' value='[AllCompanyTweets].[neg_score]' />
+          <map key='[neg_score]' value='[vader_alltweets_twint].[neg_score]' />
+          <map key='[neu score]' value='[FinalTweets].[neu score]' />
+          <map key='[neu_score (AllCompanyTweets)]' value='[AllCompanyTweets].[neu_score]' />
+          <map key='[neu_score]' value='[vader_alltweets_twint].[neu_score]' />
+          <map key='[nike]' value='[AllCompanyTweets].[nike]' />
+          <map key='[overall_score (AllCompanyTweets)]' value='[AllCompanyTweets].[overall_score]' />
+          <map key='[overall_score]' value='[vader_alltweets_twint].[overall_score]' />
+          <map key='[pfizer]' value='[AllCompanyTweets].[pfizer]' />
+          <map key='[pos score]' value='[FinalTweets].[pos score]' />
+          <map key='[pos_score (AllCompanyTweets)]' value='[AllCompanyTweets].[pos_score]' />
+          <map key='[pos_score]' value='[vader_alltweets_twint].[pos_score]' />
+          <map key='[sentiment]' value='[FinalTweets].[sentiment]' />
+          <map key='[startdate (FinalTweets)]' value='[FinalTweets].[startdate]' />
+          <map key='[startdate (Sheet11)]' value='[Sheet11].[startdate]' />
+          <map key='[startdate (Sheet12)]' value='[Sheet12].[startdate]' />
+          <map key='[startdate]' value='[AllCompanyTweets].[startdate]' />
+          <map key='[time (AllCompanyTweets)]' value='[AllCompanyTweets].[time]' />
+          <map key='[time]' value='[vader_alltweets_twint].[time]' />
+          <map key='[timezone (AllCompanyTweets)]' value='[AllCompanyTweets].[timezone]' />
+          <map key='[timezone]' value='[vader_alltweets_twint].[timezone]' />
+          <map key='[unitedhealth]' value='[AllCompanyTweets].[unitedhealth]' />
+          <map key='[walmart]' value='[AllCompanyTweets].[walmart]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[id]</local-name>
+            <parent-name>[vader_alltweets_twint]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[date]</local-name>
+            <parent-name>[vader_alltweets_twint]</parent-name>
+            <remote-alias>date</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>time</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[time]</local-name>
+            <parent-name>[vader_alltweets_twint]</parent-name>
+            <remote-alias>time</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>timezone</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[timezone]</local-name>
+            <parent-name>[vader_alltweets_twint]</parent-name>
+            <remote-alias>timezone</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>content</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[content]</local-name>
+            <parent-name>[vader_alltweets_twint]</parent-name>
+            <remote-alias>content</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>link</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[link]</local-name>
+            <parent-name>[vader_alltweets_twint]</parent-name>
+            <remote-alias>link</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pos_score</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[pos_score]</local-name>
+            <parent-name>[vader_alltweets_twint]</parent-name>
+            <remote-alias>pos_score</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>neg_score</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[neg_score]</local-name>
+            <parent-name>[vader_alltweets_twint]</parent-name>
+            <remote-alias>neg_score</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>neu_score</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[neu_score]</local-name>
+            <parent-name>[vader_alltweets_twint]</parent-name>
+            <remote-alias>neu_score</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>overall_score</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[overall_score]</local-name>
+            <parent-name>[vader_alltweets_twint]</parent-name>
+            <remote-alias>overall_score</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[vader_alltweets_twint]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:J10001:no:A1:J10001:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[id (AllCompanyTweets)]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>link</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[link (AllCompanyTweets)]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>link</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>content</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[content (AllCompanyTweets)]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>content</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lower_case</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[lower_case]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>lower_case</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[date (AllCompanyTweets)]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>date</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>time</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[time (AllCompanyTweets)]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>time</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>startdate</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[startdate]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>startdate</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>enddate</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[enddate]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>enddate</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>timezone</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[timezone (AllCompanyTweets)]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>timezone</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pos_score</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[pos_score (AllCompanyTweets)]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>pos_score</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>neg_score</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[neg_score (AllCompanyTweets)]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>neg_score</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>neu_score</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[neu_score (AllCompanyTweets)]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>neu_score</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>overall_score</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[overall_score (AllCompanyTweets)]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>overall_score</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>goldman</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[goldman]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>goldman</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>disney</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[disney]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>disney</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>caterpillar</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[caterpillar]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>caterpillar</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>mcdonald</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[mcdonald]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>mcdonald</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>home depot</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[home depot]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>home depot</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>nike</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[nike]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>nike</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>merck</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[merck]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>merck</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>walmart</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[walmart]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>walmart</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pfizer</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[pfizer]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>pfizer</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>exxon</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[exxon]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>exxon</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>boeing</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[boeing]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>boeing</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>apple</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[apple]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>apple</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>IfCompany</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[IfCompany]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>IfCompany</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>unitedhealth</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[unitedhealth]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>unitedhealth</remote-alias>
+            <ordinal>36</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ibm</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ibm]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>ibm</remote-alias>
+            <ordinal>37</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Company</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Company]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>Company</remote-alias>
+            <ordinal>38</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Check</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Check]</local-name>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias>Check</remote-alias>
+            <ordinal>39</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[AllCompanyTweets]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:AD58:no:A1:AD58:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>2</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ID]</local-name>
+            <parent-name>[FinalTweets]</parent-name>
+            <remote-alias>ID</remote-alias>
+            <ordinal>40</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Link</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Link]</local-name>
+            <parent-name>[FinalTweets]</parent-name>
+            <remote-alias>Link</remote-alias>
+            <ordinal>41</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Text</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Text]</local-name>
+            <parent-name>[FinalTweets]</parent-name>
+            <remote-alias>Text</remote-alias>
+            <ordinal>42</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Lower Text</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Lower Text]</local-name>
+            <parent-name>[FinalTweets]</parent-name>
+            <remote-alias>Lower Text</remote-alias>
+            <ordinal>43</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[date (FinalTweets)]</local-name>
+            <parent-name>[FinalTweets]</parent-name>
+            <remote-alias>date</remote-alias>
+            <ordinal>44</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>startdate</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[startdate (FinalTweets)]</local-name>
+            <parent-name>[FinalTweets]</parent-name>
+            <remote-alias>startdate</remote-alias>
+            <ordinal>45</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>enddate</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[enddate (FinalTweets)]</local-name>
+            <parent-name>[FinalTweets]</parent-name>
+            <remote-alias>enddate</remote-alias>
+            <ordinal>46</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Time</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[Time]</local-name>
+            <parent-name>[FinalTweets]</parent-name>
+            <remote-alias>Time</remote-alias>
+            <ordinal>47</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Time Zone</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Time Zone]</local-name>
+            <parent-name>[FinalTweets]</parent-name>
+            <remote-alias>Time Zone</remote-alias>
+            <ordinal>48</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pos score</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[pos score]</local-name>
+            <parent-name>[FinalTweets]</parent-name>
+            <remote-alias>pos score</remote-alias>
+            <ordinal>49</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>neg score</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[neg score]</local-name>
+            <parent-name>[FinalTweets]</parent-name>
+            <remote-alias>neg score</remote-alias>
+            <ordinal>50</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>neu score</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[neu score]</local-name>
+            <parent-name>[FinalTweets]</parent-name>
+            <remote-alias>neu score</remote-alias>
+            <ordinal>51</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>sentiment</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[sentiment]</local-name>
+            <parent-name>[FinalTweets]</parent-name>
+            <remote-alias>sentiment</remote-alias>
+            <ordinal>52</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Company</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Company (FinalTweets)]</local-name>
+            <parent-name>[FinalTweets]</parent-name>
+            <remote-alias>Company</remote-alias>
+            <ordinal>53</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Index</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Index]</local-name>
+            <parent-name>[FinalTweets]</parent-name>
+            <remote-alias>Index</remote-alias>
+            <ordinal>54</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Sentiment2</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Sentiment2]</local-name>
+            <parent-name>[FinalTweets]</parent-name>
+            <remote-alias>Sentiment2</remote-alias>
+            <ordinal>55</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Notes</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Notes]</local-name>
+            <parent-name>[FinalTweets]</parent-name>
+            <remote-alias>Notes</remote-alias>
+            <ordinal>56</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Notes3</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Notes3]</local-name>
+            <parent-name>[FinalTweets]</parent-name>
+            <remote-alias>Notes3</remote-alias>
+            <ordinal>57</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F19</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[F19]</local-name>
+            <parent-name>[FinalTweets]</parent-name>
+            <remote-alias>F19</remote-alias>
+            <ordinal>58</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F20</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[F20]</local-name>
+            <parent-name>[FinalTweets]</parent-name>
+            <remote-alias>F20</remote-alias>
+            <ordinal>59</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F21</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[F21]</local-name>
+            <parent-name>[FinalTweets]</parent-name>
+            <remote-alias>F21</remote-alias>
+            <ordinal>60</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[FinalTweets]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:U9:no:A1:U9:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>2</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[F1]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>61</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Tweet</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Tweet]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>Tweet</remote-alias>
+            <ordinal>62</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Anzahl Artikel</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Anzahl Artikel]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>Anzahl Artikel</remote-alias>
+            <ordinal>63</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:C9:no:A1:C9:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>2</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[F1 (Sheet11)]</local-name>
+            <parent-name>[Sheet11]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>64</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Company</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Company (Sheet11)]</local-name>
+            <parent-name>[Sheet11]</parent-name>
+            <remote-alias>Company</remote-alias>
+            <ordinal>65</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>startdate</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[startdate (Sheet11)]</local-name>
+            <parent-name>[Sheet11]</parent-name>
+            <remote-alias>startdate</remote-alias>
+            <ordinal>66</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>enddate</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[enddate (Sheet11)]</local-name>
+            <parent-name>[Sheet11]</parent-name>
+            <remote-alias>enddate</remote-alias>
+            <ordinal>67</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Anzahl Posts</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Anzahl Posts]</local-name>
+            <parent-name>[Sheet11]</parent-name>
+            <remote-alias>Anzahl Posts</remote-alias>
+            <ordinal>68</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Total Comments of Posts</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Total Comments of Posts]</local-name>
+            <parent-name>[Sheet11]</parent-name>
+            <remote-alias>Total Comments of Posts</remote-alias>
+            <ordinal>69</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Anzahl Comments</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Anzahl Comments]</local-name>
+            <parent-name>[Sheet11]</parent-name>
+            <remote-alias>Anzahl Comments</remote-alias>
+            <ordinal>70</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Total Likes of Comments</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Total Likes of Comments]</local-name>
+            <parent-name>[Sheet11]</parent-name>
+            <remote-alias>Total Likes of Comments</remote-alias>
+            <ordinal>71</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Sheet11]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:H58:no:A1:H58:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>2</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[F1 (Sheet12)]</local-name>
+            <parent-name>[Sheet12]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>72</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Company</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Company (Sheet12)]</local-name>
+            <parent-name>[Sheet12]</parent-name>
+            <remote-alias>Company</remote-alias>
+            <ordinal>73</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>startdate</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[startdate (Sheet12)]</local-name>
+            <parent-name>[Sheet12]</parent-name>
+            <remote-alias>startdate</remote-alias>
+            <ordinal>74</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>enddate</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[enddate (Sheet12)]</local-name>
+            <parent-name>[Sheet12]</parent-name>
+            <remote-alias>enddate</remote-alias>
+            <ordinal>75</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Anzahl Posts</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Anzahl Posts (Sheet12)]</local-name>
+            <parent-name>[Sheet12]</parent-name>
+            <remote-alias>Anzahl Posts</remote-alias>
+            <ordinal>76</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Total Comments of Posts</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Total Comments of Posts (Sheet12)]</local-name>
+            <parent-name>[Sheet12]</parent-name>
+            <remote-alias>Total Comments of Posts</remote-alias>
+            <ordinal>77</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Anzahl Comments</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Anzahl Comments (Sheet12)]</local-name>
+            <parent-name>[Sheet12]</parent-name>
+            <remote-alias>Anzahl Comments</remote-alias>
+            <ordinal>78</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Total Likes of Comments</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Total Likes of Comments (Sheet12)]</local-name>
+            <parent-name>[Sheet12]</parent-name>
+            <remote-alias>Total Likes of Comments</remote-alias>
+            <ordinal>79</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Sheet12]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:H9:no:A1:H9:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <column datatype='integer' name='[ID]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column datatype='integer' name='[id (AllCompanyTweets)]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[id]' role='dimension' type='ordinal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.852459' measure-ordering='alphabetic' measure-percentage='0.147541' show-structure='true' user-set-layout='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Posts p. year/sentiment'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Sheet1+ (Multiple Connections)' name='federated.1r4hpeo0dlhwmh1gphe3w0uw4tl3' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1r4hpeo0dlhwmh1gphe3w0uw4tl3'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[overall_score]' derivation='None' name='[none:overall_score:nk]' pivot='key' type='nominal' />
+            <column datatype='string' name='[overall_score]' role='dimension' type='nominal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[date]' derivation='Year' name='[yr:date:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1r4hpeo0dlhwmh1gphe3w0uw4tl3].[none:overall_score:nk]' />
+            </encodings>
+            <reference-line axis-column='[federated.1r4hpeo0dlhwmh1gphe3w0uw4tl3].[sum:Number of Records:qk]' enable-instant-analytics='true' formula='average' id='refline0' label-type='automatic' probability='95' scope='per-pane' value-column='[federated.1r4hpeo0dlhwmh1gphe3w0uw4tl3].[sum:Number of Records:qk]' z-order='1' />
+          </pane>
+        </panes>
+        <rows>[federated.1r4hpeo0dlhwmh1gphe3w0uw4tl3].[sum:Number of Records:qk]</rows>
+        <cols>[federated.1r4hpeo0dlhwmh1gphe3w0uw4tl3].[yr:date:ok]</cols>
+      </table>
+      <simple-id uuid='{C557DA05-44D3-4A73-8224-1EA75D748BE9}' />
+    </worksheet>
+    <worksheet name='Posts per year'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Sheet1+ (Multiple Connections)' name='federated.1r4hpeo0dlhwmh1gphe3w0uw4tl3' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1r4hpeo0dlhwmh1gphe3w0uw4tl3'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column datatype='date' name='[date]' role='dimension' type='ordinal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[date]' derivation='Year' name='[yr:date:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1r4hpeo0dlhwmh1gphe3w0uw4tl3].[sum:Number of Records:qk]</rows>
+        <cols>[federated.1r4hpeo0dlhwmh1gphe3w0uw4tl3].[yr:date:ok]</cols>
+      </table>
+      <simple-id uuid='{198C5A0F-7E24-42CA-8AC2-7A34B9E1A868}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='72'>
+    <window class='worksheet' name='Posts per year'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{3A6DAFBC-C0E1-4E6A-8DE6-96C7EC26723B}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Posts p. year/sentiment'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1r4hpeo0dlhwmh1gphe3w0uw4tl3].[none:overall_score:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{0BDE6CCF-D26E-4BEF-A59D-F21F0865320D}' />
+    </window>
+  </windows>
+</workbook>
